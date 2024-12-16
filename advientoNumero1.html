@@ -1,11 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <script></script>
+    <script>
+
+
+
+        function prepareGifts(array) {
+
+            const ordenado = array.sort();
+            const sinDuplicados = [];
+
+            if (array.length > 0) {
+
+
+                for (let a = 0; a < ordenado.length; a++) {
+
+                    let duplicado = false;
+
+                    for (let b = 0; b < a; b++) {
+
+                        if (ordenado[a] == ordenado[b]) {
+                            duplicado = true;
+
+
+                        }
+                    }
+
+                    if (!duplicado) {
+                        sinDuplicados.push(ordenado[a])
+                    }
+                }
+                return sinDuplicados;
+
+            } else {
+
+                console.log("No hay regalos")
+                
+            }
+        }
+
+
+        const gifts1 = [3, 1, 2, 3, 4, 2, 5]
+        const preparedGifts1 = prepareGifts(gifts1)
+        console.log(preparedGifts1) // [1, 2, 3, 4, 5]
+
+        const gifts2 = [6, 5, 5, 5, 5]
+        const preparedGifts2 = prepareGifts(gifts2)
+        console.log(preparedGifts2) // [5, 6]
+
+        const gifts3 = []
+        const preparedGifts3 = prepareGifts(gifts3)
+        console.log(preparedGifts3) // []
+        // No hay regalos, la lista queda vacía
+
+    </script>
 </body>
+
 </html>
